@@ -12,7 +12,7 @@ This python package, named **teneva_ht_jax** (**ten**sor **eva**luation with **H
 
 The package can be installed via pip: `pip install teneva_ht_jax` (it requires the [Python](https://www.python.org) programming language of the version >= 3.8). It can be also downloaded from the repository [teneva_ht_jax](https://github.com/AndreiChertkov/teneva_ht_jax) and installed by `python setup.py install` command from the root folder of the project.
 
-> Required python packages [numpy](https://numpy.org) (1.22+), [scipy](https://www.scipy.org) (1.8+) and [jax](https://github.com/google/jax) (3.3+; cpu version) will be automatically installed during the installation of the main software product. However, it is recommended that you manually install them first.
+> Required python packages [numpy](https://numpy.org) (1.22+), [scipy](https://www.scipy.org) (1.8+), [jax](https://github.com/google/jax) (3.3+; cpu version) and [optax](https://github.com/deepmind/optax) (0.1.5+) will be automatically installed during the installation of the main software product. However, it is recommended that you manually install them first.
 
 
 ## Documentation, examples and tests
