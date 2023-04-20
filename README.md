@@ -8,7 +8,7 @@ This python package, named **teneva_ht_jax** (**ten**sor **eva**luation with **H
 
 ## Installation
 
-> Current version "0.1.0".
+> Current version "0.1.1".
 
 The package can be installed via pip: `pip install teneva_ht_jax` (it requires the [Python](https://www.python.org) programming language of the version >= 3.8). It can be also downloaded from the repository [teneva_ht_jax](https://github.com/AndreiChertkov/teneva_ht_jax) and installed by `python setup.py install` command from the root folder of the project.
 
