@@ -17,5 +17,5 @@ The package can be installed via pip: `pip install teneva_ht_jax` (it requires t
 
 ## Documentation, examples and tests
 
-- See detailed [online documentation](https://teneva_ht_jax.readthedocs.io) for a description of each function and various numerical examples for each function.
+- See detailed [online documentation](https://teneva-ht-jax.readthedocs.io) for a description of each function and various numerical examples for each function.
 - See the jupyter notebooks in the `./demo` folder with brief description and demonstration of the capabilities of each function from the `teneva_ht_jax` package. Note that all examples from this folder are also presented in the online documentation.
