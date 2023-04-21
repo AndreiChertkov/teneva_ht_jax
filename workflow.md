@@ -22,12 +22,12 @@
     pip install sphinx twine jupyterlab
     ```
 
-5. Install teneva_ht_jax:
+5. Install `teneva_ht_jax`:
     ```bash
     python setup.py install
     ```
 
-6. Reinstall teneva_ht_jax (after updates of the code):
+6. Reinstall locally `teneva_ht_jax` (after updates of the code):
     ```bash
     clear && pip uninstall teneva_ht_jax -y && python setup.py install
     ```
@@ -55,14 +55,14 @@
 
 5. Make documentation (i.e., `docstring`) for the function similar to other functions
 
-6. Prepare a demo for a function (jupyter notebook in the `demo` folder) similar to demos for other functions in the jupyter notebook with the same name as a module name (add it in alphabetical order)
-    > Note that it's important to use a consistent style for all functions, as the code is then automatically exported from the jupyter notebooks to assemble the online documentation.
+6. Prepare a demo (add it in alphabetical order) for the function in the related jupyter notebook in the `demo` folder (with the same name as a module name). Use the style similar to demos for other functions
+    > Note that it's important to use a consistent style for all functions, as the code is then automatically exported from the jupyter notebooks to assemble the online documentation
 
-7. Add function name into dict in docs `doc/map.py` and rebuild the docs (run `python doc/build.py`), check the result in web browser (see `doc/_build/html/index.html`)
+7. Add new function name into dict in docs `doc/map.py` and rebuild the docs (run `python doc/build.py`), then check the result in web browser (see `doc/_build/html/index.html`)
 
 8. Make commit
 
-9. Use it locally until update of the package version
+9. Use the new function locally until update of the package version
 
 
 ## How to update the package version
@@ -72,18 +72,18 @@
 
 2. Build the docs `python doc/build.py`
 
-3. Do commit `Update version (0.1.X)` and push
+3. Do commit `Update version (0.1.X)` and push it
 
-4. Upload new version to `pypi` (login: AndreiChertkov; passw: xxx)
+4. Upload new version to `pypi` (login: `AndreiChertkov`; passw: `xxx`)
     ```bash
     rm -r ./dist && python setup.py sdist bdist_wheel && twine upload dist/*
     ```
 
-5. Reinstall and check that installed version is new
+5. Reinstall and check that installed version is the correct
     ```bash
     pip install --no-cache-dir --upgrade teneva_ht_jax
     ```
 
 6. Check the [teneva_ht_jax docs build](https://readthedocs.org/projects/teneva_ht_jax/builds/)
 
-7. Check the [teneva_ht_jax docs site](https://teneva_ht_jax.readthedocs.io/)
+7. Check the [teneva_ht_jax docs site](https://teneva-ht-jax.readthedocs.io/)
