@@ -31,8 +31,8 @@ Module transformation: orthogonalization, truncation and other transformations o
 
     # TODO!
     
-    Y_full = tnv.full(Y) # This function is not ready!
-    print(Y_full.shape)
+    # Y_full = tnv.full(Y) # This function is not ready!
+    # print(Y_full.shape)
 
 
 

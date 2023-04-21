@@ -1,7 +1,7 @@
 """teneva_ht_jax.transformation: transformation of HT-tensors.
 
 This module contains the function for transformation of the HT-tensor into full
-(numpy) format.
+format.
 
 """
 import jax
@@ -9,13 +9,13 @@ import jax.numpy as jnp
 
 
 def full(Y):
-    """Export HT-tensor to the full (numpy) format.
+    """Export HT-tensor to the full format.
 
     Args:
         Y (list): HT-tensor.
 
     Returns:
-        np.ndarray: multidimensional array related to the given HT-tensor.
+        jnp.ndarray: multidimensional array related to the given HT-tensor.
 
     Note:
          This function can only be used for relatively small tensors, because
