@@ -23,7 +23,7 @@ Module gd: gradient descent for HT-tensors
 
     d = 8          # Dimension of the tensor
     n = 10         # Mode size for the tensor
-    r = [7, 8, 9]  # Ranks for tree layers
+    r = [9, 7, 5]  # Ranks for tree layers
 
   We set the target (discretized) function, for which we will try to build the HT-approximation:
 
@@ -86,7 +86,7 @@ Module gd: gradient descent for HT-tensors
 
   .. code-block:: python
 
-    epochs = 30     # Number of train epochs
+    epochs = 20     # Number of train epochs
     batch  = 100    # Size of the batch for train
     lr     = 1.E-2  # Learning rate for training
 
@@ -94,45 +94,34 @@ Module gd: gradient descent for HT-tensors
 
   .. code-block:: python
 
-    rng, key = jax.random.split(rng)
-    Y = tnv.gd_appr(Y, I_trn, y_trn, I_vld, y_vld, epochs, batch, lr, key, log=True)
+    Y = tnv.gd_appr(Y, I_trn, y_trn, I_vld, y_vld, epochs, batch, lr, log=True)
 
     # >>> ----------------------------------------
     # >>> Output:
 
-    # #   1 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    2.35
-    # #   2 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    3.24
-    # #   3 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    4.14
-    # #   4 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    5.06
-    # #   5 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    5.97
-    # #   6 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    6.82
-    # #   7 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    7.65
-    # #   8 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    8.49
-    # #   9 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :    9.32
-    # #  10 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :   10.21
-    # #  11 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :   11.07
-    # #  12 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :   11.98
-    # #  13 | e_trn : 2.1e-02 | e_vld : 2.1e-02 | t :   12.88
-    # #  14 | e_trn : 2.8e-02 | e_vld : 2.8e-02 | t :   13.82
-    # #  15 | e_trn : 1.4e-02 | e_vld : 1.4e-02 | t :   14.86
-    # #  16 | e_trn : 1.6e-02 | e_vld : 1.6e-02 | t :   15.74
-    # #  17 | e_trn : 2.9e-02 | e_vld : 2.9e-02 | t :   16.70
-    # #  18 | e_trn : 2.7e-02 | e_vld : 2.7e-02 | t :   17.59
-    # #  19 | e_trn : 1.3e-02 | e_vld : 1.3e-02 | t :   18.48
-    # #  20 | e_trn : 1.4e-02 | e_vld : 1.4e-02 | t :   19.40
-    # #  21 | e_trn : 3.1e-02 | e_vld : 3.1e-02 | t :   20.28
-    # #  22 | e_trn : 1.0e-02 | e_vld : 1.0e-02 | t :   21.16
-    # #  23 | e_trn : 2.3e-02 | e_vld : 2.3e-02 | t :   22.04
-    # #  24 | e_trn : 3.1e-02 | e_vld : 3.1e-02 | t :   22.95
-    # #  25 | e_trn : 1.1e-02 | e_vld : 1.1e-02 | t :   23.84
-    # #  26 | e_trn : 1.5e-02 | e_vld : 1.5e-02 | t :   24.75
-    # #  27 | e_trn : 2.5e-02 | e_vld : 2.5e-02 | t :   25.66
-    # #  28 | e_trn : 1.2e-02 | e_vld : 1.2e-02 | t :   26.63
-    # #  29 | e_trn : 1.3e-02 | e_vld : 1.3e-02 | t :   27.57
-    # #  30 | e_trn : 1.4e-02 | e_vld : 1.4e-02 | t :   28.49
+    # #   1 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      2.61
+    # #   2 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      3.78
+    # #   3 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      4.98
+    # #   4 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      6.18
+    # #   5 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      7.39
+    # #   6 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      8.59
+    # #   7 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :      9.87
+    # #   8 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :     11.06
+    # #   9 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :     12.20
+    # #  10 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :     13.34
+    # #  11 | e_trn : 1.0e+00 | e_vld : 1.0e+00 | t :     14.47
+    # #  12 | e_trn : 2.2e-02 | e_vld : 2.2e-02 | t :     15.60
+    # #  13 | e_trn : 3.5e-02 | e_vld : 3.5e-02 | t :     16.73
+    # #  14 | e_trn : 2.5e-02 | e_vld : 2.5e-02 | t :     17.86
+    # #  15 | e_trn : 2.1e-02 | e_vld : 2.1e-02 | t :     19.02
+    # #  16 | e_trn : 1.8e-02 | e_vld : 1.8e-02 | t :     20.17
+    # #  17 | e_trn : 2.0e-02 | e_vld : 2.0e-02 | t :     21.29
+    # #  18 | e_trn : 1.2e-02 | e_vld : 1.2e-02 | t :     22.41
+    # #  19 | e_trn : 1.4e-02 | e_vld : 1.4e-02 | t :     23.57
+    # #  20 | e_trn : 1.3e-02 | e_vld : 1.3e-02 | t :     24.73
     # 
 
-  Let select some tensor element and compute the value from the constracted by GD approximation:
+  Let select some tensor element and compute the value from the constracted approximation:
 
   .. code-block:: python
 
@@ -143,7 +132,7 @@ Module gd: gradient descent for HT-tensors
     # >>> ----------------------------------------
     # >>> Output:
 
-    # 20.84243
+    # 21.239890172224758
     # 
 
   We can compute the same element from the target function:
@@ -156,7 +145,7 @@ Module gd: gradient descent for HT-tensors
     # >>> ----------------------------------------
     # >>> Output:
 
-    # 21.170488
+    # 21.170489539765892
     # 
 
   .. code-block:: python
@@ -168,7 +157,7 @@ Module gd: gradient descent for HT-tensors
     # >>> ----------------------------------------
     # >>> Output:
 
-    # Error : 3.3e-01
+    # Error : 6.9e-02
     # 
 
 
