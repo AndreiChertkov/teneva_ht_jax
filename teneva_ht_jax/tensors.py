@@ -24,7 +24,7 @@ def rand(d, n, r, key, a=-1., b=1.):
         list: HT-tensor.
 
     """
-    q = int(jnp.log2(d))
+    q = d.bit_length() - 1
 
     if isinstance(r, int):
         r = [r] * q
