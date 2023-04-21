@@ -7,6 +7,11 @@ Please, note that all demos assume the following imports:
 
   .. code-block:: python
 
+    from jax.config import config            # Optional
+    config.update('jax_enable_x64', True)    # Optional
+    import os                                # Optional
+    os.environ['JAX_PLATFORM_NAME'] = 'cpu'  # Optional
+
     import jax
     import jax.numpy as jnp
     import numpy as np
