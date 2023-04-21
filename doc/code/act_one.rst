@@ -35,7 +35,21 @@ Module act_one: single HT-tensor operations
     # >>> ----------------------------------------
     # >>> Output:
 
-    # -1.5443088
+    # 0.11423279171264825
+    # 
+
+  Let multiply the HT-tensor by 2, and check the change of the value in the same multi-index: 
+
+  .. code-block:: python
+
+    Y[-1] = Y[-1] * 2
+    y = tnv.get(Y, k)
+    print(y)
+
+    # >>> ----------------------------------------
+    # >>> Output:
+
+    # 0.2284655834252965
     # 
 
   We may transform the HT-tensor into full format and check the result:
@@ -44,14 +58,14 @@ Module act_one: single HT-tensor operations
 
     # TODO!
     
-    Y_full = tnv.full(Y) # This function is not ready!
+    # Y_full = tnv.full(Y) # This function is not ready!
     
-    y_full = Y_full[tuple(k)]
-    print(y_full)
+    # y_full = Y_full[tuple(k)]
+    # print(y_full)
     
     # Let compare values:
-    e = np.abs(y - y_full)
-    print(f'Error : {e:7.1e}')
+    # e = np.abs(y - y_full)
+    # print(f'Error : {e:7.1e}')
 
 
 

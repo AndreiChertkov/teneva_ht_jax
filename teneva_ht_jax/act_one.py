@@ -25,18 +25,19 @@ def get(Y, k):
         return None, q
 
     def body(q, data):
-        G1, G2, G = data
-        q = jnp.einsum('r,q,rsq->s', G1, G2, G)
+        g1, g2, G = data
+        q = jnp.einsum('r,q,rsq->s', g1, g2, G)
         return None, q
 
     # Compute for the first level (leafs):
-    _, Q = jax.lax.scan(body_leaf, None, (k[0::2], k[1::2], Y[0][0::2], Y[0][1::2], Y[1]))
+    _, q = jax.lax.scan(body_leaf, None,
+        (k[0::2], k[1::2], Y[0][0::2], Y[0][1::2], Y[1]))
 
     # Compute for the inner levels:
     for k in range(1, len(Y)-2):
-        _, Q = jax.lax.scan(body, None, (Q[0::2], Q[1::2], Y[k+1]))
+        _, q = jax.lax.scan(body, None, (q[0::2], q[1::2], Y[k+1]))
 
     # Compute for the last level (root):
-    q = jnp.einsum('r,q,rq->', Q[0], Q[1], Y[-1])
+    q = jnp.einsum('r,q,rq->', q[0], q[1], Y[-1])
 
     return q
